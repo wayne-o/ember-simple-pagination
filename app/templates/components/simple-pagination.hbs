@@ -3,7 +3,14 @@
     <ul class="pagination">
 
       <li class={{if isPrevDisabled "disabled"}} data-test-selector="previous-page">
-        {{#unless isPrevDisabled}}
+        {{#if isPrevDisabled}}
+        <a href="#"
+            aria-label="Previous"
+            data-test-selector="previous-page-link"
+          >
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        {{else}}
           <a href="#"
             aria-label="Previous"
             {{action "getPage" prevPageNumber}}
@@ -11,7 +18,7 @@
           >
             <span aria-hidden="true">&laquo;</span>
           </a>
-        {{/unless}}
+        {{/if}}
       </li>
 
       {{#each pages as |page|}}
@@ -25,7 +32,14 @@
       {{/each}}
 
       <li class={{if isNextDisabled "disabled"}} data-test-selector="next-page">
-        {{#unless isNextDisabled}}
+        {{#if isNextDisabled}}
+        <a href="#"
+            aria-label="Next"
+            data-test-selector="next-page-link"
+          >
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        {{else}}
           <a href="#"
             aria-label="Next"
             {{action "getPage" nextPageNumber}}
@@ -33,7 +47,7 @@
           >
             <span aria-hidden="true">&raquo;</span>
           </a>
-        {{/unless}}
+        {{/if}}
       </li>
     </ul>
   </nav>
