@@ -18,13 +18,11 @@
 
       {{#each pages as |page|}}
         <li class="page-number{{if page.active " active"}}" data-test-selector="page-number">
-          {{#if page.active}}
-            <span>{{page.number}} <span class="sr-only">(current)</span></span>
-          {{else}}
+          
             <a href="#" {{action "getPage" page.number}} data-test-selector="page-number-link">
               {{page.number}}
             </a>
-          {{/if}}
+        
         </li>
       {{/each}}
 
